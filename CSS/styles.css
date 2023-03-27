@@ -119,26 +119,34 @@ header, footer {
     position: absolute;
     top: -10px;
     left: 70px;
+    z-index: 1;
 }
 
 #second-mode {
     position: absolute;
     right: -10px;
     bottom: 70px;
+    z-index: 1;
 }
 
 #third-mode {
     position: absolute;
     bottom: -10px;
     left: 70px;
+    z-index: 1;
 }
 
 #fourth-mode {
     position: absolute;
     left: -10px;
     bottom: 70px;
+    z-index: 1;
 }
 
 .dims {
     margin-bottom: 20px;
+}
+
+.img-radial {
+    z-index: -1;
 }
