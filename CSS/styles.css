@@ -11,6 +11,9 @@
 
 }
 
+.img {
+    height: 256px;
+}
 
 header, footer {
     background-color: #37393a;
