@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
 * {
     padding: 0px;
     margin: 0px;
     background-color: #FBFFF1;
+    font-family: 'EB Garamond', serif;
 }
 
 #grid-container {
@@ -11,8 +14,59 @@
 
 }
 
+.square {
+    background-color: #FBFFF1;
+}
+
 .img {
-    height: 256px;
+    height: 150px;
+}
+
+.mode {
+    height: 100px;
+}
+
+.mode-container {
+    display: flex;
+}
+
+.choice {
+    border: 1px solid #37393a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: 10px;
+}
+
+.choice:hover {
+    cursor: pointer;
+}
+
+.choice h3 {
+    pointer-events: none;
+}
+
+.choice.selected {
+    border: 2px solid #d87d06;
+}
+
+.color {
+    height: 48px;
+    width: 48px;
+    border: 1px solid #37393a;
+}
+
+.right-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 header, footer {
@@ -35,7 +89,56 @@ header, footer {
 
 #main-section {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-block: 150px;
+}
+
+.rainbow-button {
+    color: #FBFFF1;
+    background-color: #37393a;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.radial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.radial p {
+    font-size: 1.5rem;
+}
+
+.radial-menu {
+    position: relative;
+}
+
+#first-mode {
+    position: absolute;
+    top: -10px;
+    left: 70px;
+}
+
+#second-mode {
+    position: absolute;
+    right: -10px;
+    bottom: 70px;
+}
+
+#third-mode {
+    position: absolute;
+    bottom: -10px;
+    left: 70px;
+}
+
+#fourth-mode {
+    position: absolute;
+    left: -10px;
+    bottom: 70px;
+}
+
+.dims {
+    margin-bottom: 20px;
 }

@@ -1,7 +1,9 @@
+//Grid Creation
+
 let gridContainer = document.querySelector("#grid-container");
 
 let screenSize = 512;
-let rows = 16;                       
+let rows = 64;                       
 
 for (let i = 0; i < rows; i++) {
 
@@ -26,9 +28,43 @@ for (let i = 0; i < rows; i++) {
 
 }
 
-let rowSelector = gridContainer.querySelectorAll(".grid-row");
+// UI
 
-let mouseDownVariable = 0;
+let eraserContainer = document.querySelector("#eraser");
+let pencilContainer = document.querySelector("#pencil");
+
+eraserContainer.addEventListener("click", () => {
+
+    if (selection = "pencil") {
+
+        pencilContainer.classList.remove("selected");
+
+    }
+
+    eraserContainer.classList.add("selected");
+    selection = "eraser";
+
+})
+
+pencilContainer.addEventListener("click", () => {
+
+    if (selection = "eraser") {
+
+        eraserContainer.classList.remove("selected");
+
+    }
+
+    pencilContainer.classList.add("selected");
+    selection = "pencil";
+
+})
+
+// Behaviour
+
+let rowSelector = gridContainer.querySelectorAll(".grid-row");
+let mouseDownVariable = false;  
+
+let selection = "pencil";
 
 rowSelector.forEach(row => {
     
@@ -38,21 +74,29 @@ rowSelector.forEach(row => {
 
         square.addEventListener("mousedown", () => {
 
-            mouseDownVariable = 1;
+            mouseDownVariable = true;
 
         })
 
         square.addEventListener("mouseup", () => {
 
-            mouseDownVariable = 0;
+            mouseDownVariable = false;
 
         })
 
         square.addEventListener("mousemove", () => {
 
-            if (mouseDownVariable == 1) {
+            if (mouseDownVariable) {
 
-                square.classList.add("hovered");
+                switch (selection) {
+                    case "eraser":
+                        square.style.backgroundColor = "#FBFFF1";
+                        break;
+                
+                    case "pencil":
+                        square.style.backgroundColor = "black";
+                        break;
+                }
 
             }
 
@@ -62,3 +106,4 @@ rowSelector.forEach(row => {
     });
     
 });
+

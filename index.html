@@ -12,35 +12,67 @@
 
     <header>Etch-A-Sketch</header>
 
-    <main id="main-section">
+    <main id="main-section" draggable="false">
 
         <section class="left-panel">
 
             <div class="radial">
-                <image src="/Assets/Radial.png" class="img" alt="Radial"></image>
+                <p>GRID SIZE</p>
+                <p class="dims"><span class="square-dimensions">16</span>x<span class="square-dimensions">16</span></p>
+                <div class="radial-menu">
+                    <p id="first-mode">8</p>
+                    <p id="second-mode">16</p>
+                    <p id="third-mode">32</p>
+                    <p id="fourth-mode">64</p>
+                    <image src="/Assets/Radial.png" class="img img-radial" alt="Radial"></image>
+                </div>
             </div>
 
             <div class="mode-container">
 
-                <div class="pencil">
-                    <image src="/Assets/pencil.png" class="img" alt="Pencil"></image>
+                <div class="choice selected" id="pencil">
+                    <image src="/Assets/pencil.png" class="img mode" alt="Pencil"></image>
+                    <h3>Pencil</h3>
                 </div>
 
-                <div class="eraser">
-                    <image src="/Assets/eraser.png" class="img" alt="Eraser"></image>
+                <div class="choice" id="eraser">
+                    <image src="/Assets/eraser.png" class="img mode" alt="Eraser"></image>
+                    <h3>Eraser</h3>
                 </div>
 
             </div>
 
             <button class="rainbow-button">
-
+                Rainbow mode
             </button>
 
         </section>
 
         <section id="grid-container" draggable="false">
+
         </section>
     
+        <section class="right-panel">
+
+            <div class="color" id="red"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+
+        </section>
+
     </main>
 
     <footer>Chanditha Mahanama Github</footer>
