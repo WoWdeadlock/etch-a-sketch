@@ -1,9 +1,38 @@
-.square {
-    width: 64px;
-    height: 64px;   
-    border: 1px solid black;
+* {
+    padding: 0px;
+    margin: 0px;
+    background-color: #FBFFF1;
+}
+
+#grid-container {
+    height: 512px;
+    width: 512px;
+    border: 1px solid #37393a;
+
+}
+
+
+header, footer {
+    background-color: #37393a;
+    color: #FBFFF1;
+    padding: 20px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hovered {
+    background-color: black;
 }
 
 .grid-row {
     display: flex;
+}
+
+#main-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 150px;
 }
