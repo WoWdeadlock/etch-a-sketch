@@ -161,6 +161,7 @@ header, footer {
 #selected-color {
     width: 72px;
     height: 72px;
+    pointer-events: none;
 }
 
 .img-radial {
@@ -175,4 +176,8 @@ header, footer {
 
 .right-panel > * {
     margin-bottom: 40px;
+}
+
+.colors-container.inactive {
+    pointer-events: none;
 }

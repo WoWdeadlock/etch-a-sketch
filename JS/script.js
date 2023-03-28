@@ -9,6 +9,8 @@ let screenSize = 512;
 
 let selection = "pencil";
 
+let rainbowState = false;
+
 let dimensionDeterminer = document.querySelectorAll(".square-dimensions");
 
 gridCreator(8);
@@ -60,7 +62,9 @@ function startGame() {
 
     let rowSelector = gridContainer.querySelectorAll(".grid-row");
     let mouseDownVariable = false;  
-        
+
+    let brightness = 1;
+    
     rowSelector.forEach(row => {
         
         let squareSelector = row.querySelectorAll(".square");
@@ -68,9 +72,56 @@ function startGame() {
         squareSelector.forEach(square => {
     
             square.addEventListener("mousedown", () => {
-    
+
                 mouseDownVariable = true;
+
+                let randomColor = Math.floor(Math.random()*16777215).toString(16);
+                
+                if (mouseDownVariable) {
+
+                    switch (selection) {
+                        case "eraser":
+                            square.style.backgroundColor = "#FBFFF1";
+                            break;
+                    
+                        case "pencil":
+                            if (rainbowState == false) {square.style.backgroundColor = selectedColor.style.backgroundColor;}
+                                
+                            else {
+                                square.style.backgroundColor = "#" + randomColor;
+                                square.style.filter = "brightness(" + brightness + ")";
+                                brightness -= 0.1;
+
+                                if (brightness < 0) {
+
+                                    brightness = 1;
+
+                                }
+
+                            }
+        
+                            break;
+
+                        default:
+                            
+                            if (rainbowState == false) {square.style.backgroundColor = selection;}
+
+                            else {
+                                square.style.backgroundColor = "#" + randomColor;
+                                square.style.filter = "brightness(" + brightness + ")";
+                                brightness -= 0.1;
+
+                                if (brightness < 0) {
+
+                                    brightness = 1;
+
+                                }
+
+                            }
+                    }
     
+                }
+        
             })
     
             square.addEventListener("mouseup", () => {
@@ -78,45 +129,58 @@ function startGame() {
                 mouseDownVariable = false;
     
             })
+            
+            square.addEventListener("mouseover", () => {
 
-            square.addEventListener("click", () => {
+                let randomColor = Math.floor(Math.random()*16777215).toString(16);
                 
-                switch (selection) {
-                    case "eraser":
-                        square.style.backgroundColor = "#FBFFF1";
-                        break;
-                
-                    case "pencil":
-                        square.style.backgroundColor = selectedColor.style.backgroundColor;
-                        break;
-
-                    default:
-                        square.style.backgroundColor = selection;
-                }
-
-            })
-    
-            square.addEventListener("mousemove", () => {
-    
                 if (mouseDownVariable) {
-    
+
                     switch (selection) {
                         case "eraser":
                             square.style.backgroundColor = "#FBFFF1";
                             break;
                     
                         case "pencil":
-                            square.style.backgroundColor = selectedColor.style.backgroundColor;
+                            if (rainbowState == false) {square.style.backgroundColor = selectedColor.style.backgroundColor;}
+                                
+                            else {
+                                square.style.backgroundColor = "#" + randomColor;
+                                square.style.filter = "brightness(" + brightness + ")";
+                                brightness -= 0.1;
+
+                                if (brightness < 0) {
+
+                                    brightness = 1;
+
+                                }
+
+                            }
+        
                             break;
 
                         default:
-                            square.style.backgroundColor = selection;
+
+                            if (rainbowState == false) {square.style.backgroundColor = selection;}
+
+                            else {
+                                square.style.backgroundColor = "#" + randomColor;
+                                square.style.filter = "brightness(" + brightness + ")";
+                                brightness -= 0.1;
+
+                                if (brightness < 0) {
+
+                                    brightness = 1;
+
+                                }
+
+                            }
+
                     }
     
                 }
     
             })
-            
     
         });
         
@@ -230,11 +294,12 @@ colors.forEach(color => {
 // Rainbow Button
 
 let rainbowButton = document.querySelector(".rainbow-button");
-let rainbowState = false;
+let colorGrid = document.querySelector(".colors-container");
 
 rainbowButton.addEventListener("click", () => {
 
     rainbowButton.classList.toggle("onclick");
+    colorGrid.classList.toggle("inactive");
 
     if (rainbowState == false) {
 
@@ -245,5 +310,9 @@ rainbowButton.addEventListener("click", () => {
         rainbowState = false;
 
     }
+
+    startGame();
+
+    console.log(rainbowState);
 
 })
