@@ -54,6 +54,7 @@
     height: 48px;
     width: 48px;
     border: 1px solid #37393a;
+    cursor: pointer;
 }
 
 .colors-container {
@@ -147,6 +148,21 @@ header, footer {
     margin-bottom: 20px;
 }
 
+#selected-color {
+    width: 72px;
+    height: 72px;
+}
+
 .img-radial {
     z-index: -1;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-panel > * {
+    margin-bottom: 40px;
 }

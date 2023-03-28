@@ -78,6 +78,23 @@ function startGame() {
                 mouseDownVariable = false;
     
             })
+
+            square.addEventListener("click", () => {
+                
+                switch (selection) {
+                    case "eraser":
+                        square.style.backgroundColor = "#FBFFF1";
+                        break;
+                
+                    case "pencil":
+                        square.style.backgroundColor = selectedColor.style.backgroundColor;
+                        break;
+
+                    default:
+                        square.style.backgroundColor = selection;
+                }
+                
+            })
     
             square.addEventListener("mousemove", () => {
     
@@ -89,8 +106,11 @@ function startGame() {
                             break;
                     
                         case "pencil":
-                            square.style.backgroundColor = "black";
+                            square.style.backgroundColor = selectedColor.style.backgroundColor;
                             break;
+
+                        default:
+                            square.style.backgroundColor = selection;
                     }
     
                 }
@@ -182,28 +202,28 @@ pencilContainer.addEventListener("click", () => {
 
 // Colors Section
 
-let blackColor = document.querySelector("#black");
-let grayColor = document.querySelector("#gray");
-let maroonColor = document.querySelector("#maroon");
-let redColor = document.querySelector("#red");
-let orangeColor = document.querySelector("#orange");
-let yellowColor = document.querySelector("#yellow");
-let greenColor = document.querySelector("#green");
-let blueColor = document.querySelector("#blue");
-let darkblueColor = document.querySelector("#darkblue");
-let purpleColor = document.querySelector("#purple");
-let brownColor = document.querySelector("#brown");
-let pinkColor = document.querySelector("#pink");
+let colors = document.querySelectorAll(".color");
+let selectedColor = document.querySelector("#selected-color");
 
-blackColor.style.backgroundColor = "black";
-grayColor.style.backgroundColor = "gray";
-maroonColor.style.backgroundColor = "maroon";
-redColor.style.backgroundColor = "red";
-orangeColor.style.backgroundColor = "orange";
-yellowColor.style.backgroundColor = "yellow";
-greenColor.style.backgroundColor = "green";
-blueColor.style.backgroundColor = "blue";
-darkblueColor.style.backgroundColor = "darkblue";
-purpleColor.style.backgroundColor = "purple";
-brownColor.style.backgroundColor = "brown";
-pinkColor.style.backgroundColor = "pink";
+selectedColor.style.backgroundColor = "black";
+
+colors.forEach(color => {
+    
+    color.style.backgroundColor = color.id; 
+
+    color.addEventListener("click", () => {
+
+        selection = color.id;
+        selectedColor.style.backgroundColor = color.id;
+
+        if (eraserContainer.classList.contains("selected")) {
+
+            eraserContainer.classList.remove("selected");
+            pencilContainer.classList.add("selected");
+
+        }
+
+    })
+
+});
+
