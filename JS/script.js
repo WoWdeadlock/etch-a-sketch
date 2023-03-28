@@ -93,7 +93,7 @@ function startGame() {
                     default:
                         square.style.backgroundColor = selection;
                 }
-                
+
             })
     
             square.addEventListener("mousemove", () => {
@@ -227,3 +227,23 @@ colors.forEach(color => {
 
 });
 
+// Rainbow Button
+
+let rainbowButton = document.querySelector(".rainbow-button");
+let rainbowState = false;
+
+rainbowButton.addEventListener("click", () => {
+
+    rainbowButton.classList.toggle("onclick");
+
+    if (rainbowState == false) {
+
+        rainbowState = true;
+
+    } else if (rainbowState == true) {
+
+        rainbowState = false;
+
+    }
+
+})

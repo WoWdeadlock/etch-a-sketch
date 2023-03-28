@@ -99,7 +99,17 @@ header, footer {
     color: #FBFFF1;
     background-color: #37393a;
     font-size: 1.5rem;
+    border: 1px solid #37393a;
     padding: 10px;
+}
+
+.rainbow-button.onclick {
+    background-color: #FBFFF1;
+    color: #37393a;
+}
+
+.rainbow-button:hover {
+    cursor: pointer;
 }
 
 .radial {
