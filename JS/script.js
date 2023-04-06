@@ -69,7 +69,7 @@ function startGame() {
         
         let squareSelector = row.querySelectorAll(".square");
     
-        squareSelector.forEach(square => {
+        squareSelector.forEach(square => {  
     
             square.addEventListener("mousedown", () => {
 
@@ -82,10 +82,17 @@ function startGame() {
                     switch (selection) {
                         case "eraser":
                             square.style.backgroundColor = "#FBFFF1";
+                            square.style.filter = "none";
                             break;
                     
                         case "pencil":
-                            if (rainbowState == false) {square.style.backgroundColor = selectedColor.style.backgroundColor;}
+
+                            if (rainbowState == false) {
+                                
+                                square.style.backgroundColor = selectedColor.style.backgroundColor;
+                                square.style.filter = "none";
+                                
+                            }
                                 
                             else {
                                 square.style.backgroundColor = "#" + randomColor;
@@ -104,7 +111,12 @@ function startGame() {
 
                         default:
                             
-                            if (rainbowState == false) {square.style.backgroundColor = selection;}
+                            if (rainbowState == false) {
+
+                                square.style.backgroundColor = selection;
+                                square.style.filter = "none";
+
+                            }
 
                             else {
                                 square.style.backgroundColor = "#" + randomColor;
@@ -139,10 +151,16 @@ function startGame() {
                     switch (selection) {
                         case "eraser":
                             square.style.backgroundColor = "#FBFFF1";
+                            square.style.filter = "none";
                             break;
                     
                         case "pencil":
-                            if (rainbowState == false) {square.style.backgroundColor = selectedColor.style.backgroundColor;}
+                            if (rainbowState == false) {
+
+                                square.style.backgroundColor = selectedColor.style.backgroundColor;
+                                square.style.filter = "none";
+                            
+                            }
                                 
                             else {
                                 square.style.backgroundColor = "#" + randomColor;
@@ -161,7 +179,12 @@ function startGame() {
 
                         default:
 
-                            if (rainbowState == false) {square.style.backgroundColor = selection;}
+                            if (rainbowState == false) {
+
+                                square.style.backgroundColor = selection;
+                                square.style.filter = "none";
+                                
+                            }
 
                             else {
                                 square.style.backgroundColor = "#" + randomColor;
@@ -312,7 +335,5 @@ rainbowButton.addEventListener("click", () => {
     }
 
     startGame();
-
-    console.log(rainbowState);
 
 })
